@@ -14,11 +14,6 @@ function onReady() {
 
 }
 
-let numOne = $('#numOne').val();
-let numTwo = $('#numTwo').val();
-let newCalc;
-
-
 //on click functions
 function handleAdd(){
     console.log('add');
@@ -38,13 +33,31 @@ function handleDivide(){
 
 function handleEqual(){
     console.log('equal');
-    newCalc = 
+    const newCalc = 
         {
             numOne: $('#numOne').val(),
             numTwo: $('#numTwo').val()
-        }
-        console.log(newCalc);
-        return newCalc
+        };
+        $.ajax({
+            url: '/math',
+            method: 'POST',
+            data: newCalc
+        }).then(function(response){
+            console.log(response);
+    
+            getMath();
+        })
+}
+
+function getMath() {
+    $.ajax({
+        url: '/math',
+        method: 'GET'
+    }).then( function(response){
+        render(response);
+    }).catch(function(error){
+        console.log('ERROR IN GET /getMath')
+    })
 }
 
 function handleClear(){

@@ -1,6 +1,7 @@
 // Imports
 const express = require('express');
 const bodyParser = require('body-parser');
+const math = require('./modules/math.js')
 
 //Make an instance of a server
 const app = express();
@@ -17,3 +18,13 @@ app.use(bodyParser.urlencoded({ extended: true}));
 app.listen(PORT, function() {
     console.log('SERVER RUNNING ON PORT', PORT)
 });
+
+app.get('/math', function(req,res){
+    res.send(math);
+});
+
+app.post('/math', (req, res) => {
+    console.log('POST /math', req.body);
+    math.push(req.body);
+    res.sendStatus(201);
+})
