@@ -21,6 +21,7 @@ app.listen(PORT, function() {
 
 app.get('/math', function(req,res){
     res.send(math);
+    operationSelector(math);
 });
 
 app.post('/math', (req, res) => {
@@ -28,3 +29,11 @@ app.post('/math', (req, res) => {
     math.push(req.body);
     res.sendStatus(201);
 })
+
+
+function operationSelector(math){
+    if (math[math.length-1].operator === '+') {
+        result = math[math.length-1].numOne + math[math.length-1].numTwo;
+    }
+    return result;
+}

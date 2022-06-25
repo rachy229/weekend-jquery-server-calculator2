@@ -16,21 +16,29 @@ function onReady() {
 
 }
 
+//if logic based on newCalc.operator
+
+let operator;
+
 //on click functions
 function handleAdd(){
     console.log('add');
+    operator = '+';
 }
 
 function handleSubtract(){
     console.log('subract');
+    operator = '-';
 }
 
 function handleMultiply(){
     console.log('multiply');
+    operator = '*';
 }
 
 function handleDivide(){
     console.log('divide');
+    operator = '/';
 }
 
 function handleEqual(){
@@ -38,7 +46,8 @@ function handleEqual(){
     const newCalc = 
         {
             numOne: $('#numOne').val(),
-            numTwo: $('#numTwo').val()
+            numTwo: $('#numTwo').val(),
+            operator: operator
         };
         $.ajax({
             url: '/math',
@@ -70,7 +79,7 @@ function render(calc){
     $('#mathList').empty();
 
     for (let newCalc of calc){
-        $('#mathList').append(`<li> ${newCalc.numOne} - ${newCalc.numTwo} </li>`);
+        $('#mathList').append(`<li> ${newCalc.numOne} ${operator} ${newCalc.numTwo} </li>`);
     }
 
     $('#numOne').val('');
