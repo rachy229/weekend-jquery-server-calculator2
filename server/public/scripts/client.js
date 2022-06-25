@@ -12,6 +12,8 @@ function onReady() {
     $('#equal').on('click', handleEqual);
     $('#clear').on('click', handleClear);
 
+    getMath();
+
 }
 
 //on click functions
@@ -62,4 +64,15 @@ function getMath() {
 
 function handleClear(){
     console.log('clear');
+}
+
+function render(calc){
+    $('#mathList').empty();
+
+    for (let newCalc of calc){
+        $('#mathList').append(`<li> ${newCalc.numOne} - ${newCalc.numTwo} </li>`);
+    }
+
+    $('#numOne').val('');
+    $('#numTwo').val('');
 }
