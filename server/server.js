@@ -21,7 +21,6 @@ app.listen(PORT, function() {
 
 app.get('/math', function(req,res){
     res.send(math);
-    operationSelector(math);
 });
 
 app.post('/math', (req, res) => {

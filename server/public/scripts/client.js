@@ -18,6 +18,13 @@ function onReady() {
 
 //if logic based on newCalc.operator
 
+let newCalc = 
+        {
+            numOne: '',
+            numTwo: '',
+            operator: ''
+        };
+
 let operator;
 
 //on click functions
@@ -43,7 +50,7 @@ function handleDivide(){
 
 function handleEqual(){
     console.log('equal');
-    const newCalc = 
+    newCalc = 
         {
             numOne: $('#numOne').val(),
             numTwo: $('#numTwo').val(),
@@ -79,7 +86,7 @@ function render(calc){
     $('#mathList').empty();
 
     for (let newCalc of calc){
-        $('#mathList').append(`<li> ${newCalc.numOne} ${operator} ${newCalc.numTwo} </li>`);
+        $('#mathList').append(`<li> ${newCalc.numOne} ${newCalc.operator} ${newCalc.numTwo} </li>`);
     }
 
     $('#numOne').val('');
