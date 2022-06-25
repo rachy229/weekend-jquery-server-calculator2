@@ -13,8 +13,6 @@ app.use(express.static('server/public'));
 app.use(bodyParser.urlencoded({ extended: true}));
 
 
-
-
 //run the server, on the port we want.
 app.listen(PORT, function() {
     console.log('SERVER RUNNING ON PORT', PORT)
