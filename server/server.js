@@ -26,13 +26,25 @@ app.get('/math', function(req,res){
 app.post('/math', (req, res) => {
     console.log('POST /math', req.body);
     math.push(req.body);
+    operationSelector(req.body);
     res.sendStatus(201);
 })
 
 
-function operationSelector(math){
+function operationSelector(){
     if (math[math.length-1].operator === '+') {
-        result = math[math.length-1].numOne + math[math.length-1].numTwo;
+        result = Number(math[math.length-1].numOne) + Number(math[math.length-1].numTwo);
     }
+    else if (math[math.length-1].operator === '-') {
+        result = Number(math[math.length-1].numOne) - Number(math[math.length-1].numTwo);
+
+    }
+    else if (math[math.length-1].operator === '*') {
+        result = Number(math[math.length-1].numOne) * Number(math[math.length-1].numTwo);
+    }
+    else if (math[math.length-1].operator === '/') {
+        result = Number(math[math.length-1].numOne) / Number(math[math.length-1].numTwo)
+    }
+    console.log('in operation selector, result =', result);
     return result;
 }
