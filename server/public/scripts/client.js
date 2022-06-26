@@ -16,7 +16,6 @@ function onReady() {
 
 }
 
-//if logic based on newCalc.operator
 
 let newCalc = 
         {
@@ -27,6 +26,7 @@ let newCalc =
         };
 
 let operator;
+
 
 //on click functions
 function handleAdd(){
@@ -71,6 +71,7 @@ function handleEqual(){
             console.log(response);
     
             getMath();
+            renderResult();
         })
 }
 
@@ -99,10 +100,16 @@ function render(calc){
         // $('#mathOut').append(`${newCalc.result}`);
     }
 
-    $('#mathOut').append(`${calc[calc.length-1].result}`); 
-    //this is throwing me an error and I don't know why
-    //it goes away once I refresh and everything still works 
+    // $('#mathOut').append(`${calc[calc.length-1].result}`);
+        // $('#mathOut').append(`${newCalc.result}`);
+
 
     $('#numOne').val('');
     $('#numTwo').val('');
+}
+
+function renderResult(calc){
+    // $('#mathOut').append(`${calc[calc.length-1].result}`);
+        $('#mathOut').append(`${newCalc.result}`);
+
 }
