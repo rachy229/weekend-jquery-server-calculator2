@@ -1,7 +1,10 @@
 // Imports
 const express = require('express');
 const bodyParser = require('body-parser');
-const math = require('./modules/math.js')
+const math = require('./modules/math.js');
+
+//variables
+let newMath;
 
 //Make an instance of a server
 const app = express();
@@ -25,12 +28,13 @@ app.get('/math', function(req,res){
 
 app.post('/math', (req, res) => {
     console.log('POST /math', req.body);
+    newMath = req.body;
     math.push(req.body);
     operationSelector(req.body);
     res.sendStatus(201);
 })
 
-
+let result;
 function operationSelector(){
     if (math[math.length-1].operator === '+') {
         result = Number(math[math.length-1].numOne) + Number(math[math.length-1].numTwo);
@@ -46,5 +50,6 @@ function operationSelector(){
         result = Number(math[math.length-1].numOne) / Number(math[math.length-1].numTwo)
     }
     console.log('in operation selector, result =', result);
-    return result;
+    newMath.result = result;
+    console.log(math);
 }

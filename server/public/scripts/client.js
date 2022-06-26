@@ -22,7 +22,8 @@ let newCalc =
         {
             numOne: '',
             numTwo: '',
-            operator: ''
+            operator: '',
+            result: ''
         };
 
 let operator;
@@ -83,11 +84,17 @@ function handleClear(){
 }
 
 function render(calc){
+
     $('#mathList').empty();
+    $('#mathOut').empty();
+
 
     for (let newCalc of calc){
-        $('#mathList').append(`<li> ${newCalc.numOne} ${newCalc.operator} ${newCalc.numTwo} </li>`);
+        $('#mathList').append(`<li> ${newCalc.numOne} ${newCalc.operator} ${newCalc.numTwo} = ${newCalc.result}</li>`);
+        // $('#mathOut').append(`${newCalc.result}`);
     }
+
+    $('#mathOut').append(`${calc[calc.length-1].result}`);
 
     $('#numOne').val('');
     $('#numTwo').val('');
