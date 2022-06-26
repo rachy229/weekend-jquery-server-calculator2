@@ -1,7 +1,35 @@
 body{
     background-color: rgb(252, 166, 179);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
+
 h1{
     background-color: rgb(252, 64, 96);
     text-align: center;
+}
+
+h2{
+    text-align: center;
+    background-color: rgb(252, 64, 96);
+}
+
+#inputZone{
+    /* padding-left: 25px; */
+    text-align: center;
+}
+
+#mathList{
+    padding-left: 50px;
+}
+
+button{
+    border-radius: 10px;
+    height: 50px;
+    width: 50px;
+}
+
+input{
+    border-radius: 10px;
+    height: 45px;
+    width: 100px;
 }

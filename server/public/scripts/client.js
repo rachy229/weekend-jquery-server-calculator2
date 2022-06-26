@@ -49,6 +49,12 @@ function handleDivide(){
     operator = '/';
 }
 
+function handleClear(){
+    console.log('clear');
+    $('#numOne').val('');
+    $('#numTwo').val('');
+}
+
 function handleEqual(){
     console.log('equal');
     newCalc = 
@@ -68,6 +74,8 @@ function handleEqual(){
         })
 }
 
+
+
 function getMath() {
     $.ajax({
         url: '/math',
@@ -79,11 +87,6 @@ function getMath() {
     })
 }
 
-function handleClear(){
-    console.log('clear');
-    $('#numOne').val('');
-    $('#numTwo').val('');
-}
 
 function render(calc){
 
@@ -98,6 +101,7 @@ function render(calc){
 
     $('#mathOut').append(`${calc[calc.length-1].result}`); 
     //this is throwing me an error and I don't know why
+    //it goes away once I refresh and everything still works 
 
     $('#numOne').val('');
     $('#numTwo').val('');
