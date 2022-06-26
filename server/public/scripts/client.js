@@ -71,7 +71,7 @@ function handleEqual(){
             console.log(response);
     
             getMath();
-            renderResult();
+            // renderResult();
         })
 }
 
@@ -100,7 +100,8 @@ function render(calc){
         // $('#mathOut').append(`${newCalc.result}`);
     }
 
-    // $('#mathOut').append(`${calc[calc.length-1].result}`);
+    $('#mathOut').append(`${calc[calc.length-1].result}`);
+    //this is throwing a weird error but everything still works
         // $('#mathOut').append(`${newCalc.result}`);
 
 
@@ -108,8 +109,10 @@ function render(calc){
     $('#numTwo').val('');
 }
 
-function renderResult(calc){
-    // $('#mathOut').append(`${calc[calc.length-1].result}`);
-        $('#mathOut').append(`${newCalc.result}`);
+// function renderResult(calc){
+//     // $('#mathOut').empty();
 
-}
+//     // $('#mathOut').append(`${calc[calc.length-1].result}`);
+//     $('#mathOut').append(`${newCalc.result}`);
+
+// }
