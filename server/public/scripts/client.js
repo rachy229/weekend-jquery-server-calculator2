@@ -81,6 +81,8 @@ function getMath() {
 
 function handleClear(){
     console.log('clear');
+    $('#numOne').val('');
+    $('#numTwo').val('');
 }
 
 function render(calc){
@@ -94,7 +96,8 @@ function render(calc){
         // $('#mathOut').append(`${newCalc.result}`);
     }
 
-    $('#mathOut').append(`${calc[calc.length-1].result}`);
+    $('#mathOut').append(`${calc[calc.length-1].result}`); 
+    //this is throwing me an error and I don't know why
 
     $('#numOne').val('');
     $('#numTwo').val('');
